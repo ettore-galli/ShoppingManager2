@@ -1,0 +1,42 @@
+[
+    {
+        "merged": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/build/intermediates/res/merged/debug/anim/abc_slide_in_bottom.xml",
+        "source": "/Users/ettoregalli/.android/build-cache/60651db94081871d1e8e2ee68cf617cf5a848686/output/res/anim/abc_slide_in_bottom.xml"
+    },
+    {
+        "merged": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/build/intermediates/res/merged/debug/anim/abc_popup_enter.xml",
+        "source": "/Users/ettoregalli/.android/build-cache/60651db94081871d1e8e2ee68cf617cf5a848686/output/res/anim/abc_popup_enter.xml"
+    },
+    {
+        "merged": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/build/intermediates/res/merged/debug/anim/abc_slide_out_top.xml",
+        "source": "/Users/ettoregalli/.android/build-cache/60651db94081871d1e8e2ee68cf617cf5a848686/output/res/anim/abc_slide_out_top.xml"
+    },
+    {
+        "merged": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/build/intermediates/res/merged/debug/anim/abc_slide_in_top.xml",
+        "source": "/Users/ettoregalli/.android/build-cache/60651db94081871d1e8e2ee68cf617cf5a848686/output/res/anim/abc_slide_in_top.xml"
+    },
+    {
+        "merged": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/build/intermediates/res/merged/debug/anim/abc_fade_out.xml",
+        "source": "/Users/ettoregalli/.android/build-cache/60651db94081871d1e8e2ee68cf617cf5a848686/output/res/anim/abc_fade_out.xml"
+    },
+    {
+        "merged": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/build/intermediates/res/merged/debug/anim/abc_fade_in.xml",
+        "source": "/Users/ettoregalli/.android/build-cache/60651db94081871d1e8e2ee68cf617cf5a848686/output/res/anim/abc_fade_in.xml"
+    },
+    {
+        "merged": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/build/intermediates/res/merged/debug/anim/abc_popup_exit.xml",
+        "source": "/Users/ettoregalli/.android/build-cache/60651db94081871d1e8e2ee68cf617cf5a848686/output/res/anim/abc_popup_exit.xml"
+    },
+    {
+        "merged": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/build/intermediates/res/merged/debug/anim/abc_slide_out_bottom.xml",
+        "source": "/Users/ettoregalli/.android/build-cache/60651db94081871d1e8e2ee68cf617cf5a848686/output/res/anim/abc_slide_out_bottom.xml"
+    },
+    {
+        "merged": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/build/intermediates/res/merged/debug/anim/abc_shrink_fade_out_from_bottom.xml",
+        "source": "/Users/ettoregalli/.android/build-cache/60651db94081871d1e8e2ee68cf617cf5a848686/output/res/anim/abc_shrink_fade_out_from_bottom.xml"
+    },
+    {
+        "merged": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/build/intermediates/res/merged/debug/anim/abc_grow_fade_in_from_bottom.xml",
+        "source": "/Users/ettoregalli/.android/build-cache/60651db94081871d1e8e2ee68cf617cf5a848686/output/res/anim/abc_grow_fade_in_from_bottom.xml"
+    }
+]
