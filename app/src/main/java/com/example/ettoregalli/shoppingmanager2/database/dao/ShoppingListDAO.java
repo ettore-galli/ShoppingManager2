@@ -221,6 +221,8 @@ public class ShoppingListDAO extends SQLiteOpenHelper {
         return values;
     }
 
+
+
     public ContentValues getListItemNonKeyContentValues(int listId, int itemId) {
         ContentValues values = new ContentValues();
         return addListItemKeyToContentValues(listId, itemId, values);

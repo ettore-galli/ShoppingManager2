@@ -1,4 +1,4 @@
-package com.example.ettoregalli.shoppingmanager2.database.sql;
+package com.example.ettoregalli.shoppingmanager2.database.sqliteutilities;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;

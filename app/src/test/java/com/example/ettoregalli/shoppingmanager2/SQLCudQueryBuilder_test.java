@@ -4,7 +4,7 @@ package com.example.ettoregalli.shoppingmanager2;
  * Created by ettoregalli on 11/04/17.
  */
 
-import com.example.ettoregalli.shoppingmanager2.database.sql.SQLCudQueryBuilder;
+import com.example.ettoregalli.shoppingmanager2.database.sqliteutilities.SQLCudQueryBuilder;
 
 import org.junit.Test;
 
