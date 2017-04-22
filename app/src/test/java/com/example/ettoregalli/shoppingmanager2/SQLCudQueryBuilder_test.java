@@ -27,6 +27,11 @@ public class SQLCudQueryBuilder_test {
         System.out.println(scb.getDeleteQuery("WHERE exists(SELECT lalla from qqq WHERE xyz=4)"));
         System.out.println(scb.getWhereClause());
 
+
+        SQLCudQueryBuilder scb2 = new SQLCudQueryBuilder("tabella2");
+        scb2.put("chiave1", "aaa2", true);
+        scb2.put("chiave2", "bbb2", true);
+        System.out.println(scb2.getDeleteQuery());
     }
 
 }

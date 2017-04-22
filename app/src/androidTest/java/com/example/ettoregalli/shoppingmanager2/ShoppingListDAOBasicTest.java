@@ -36,7 +36,6 @@ public class ShoppingListDAOBasicTest {
 
         sld.scratchDelete();
 
-
         String msg;
 
         ListItem li = new ListItem();
@@ -67,7 +66,7 @@ public class ShoppingListDAOBasicTest {
         ContentValues cv = new ContentValues();
         cv.put("c1", "Valore uno");
         cv.put("c2", 2);
-        for (String k : cv.keySet()){
+        for (String k : cv.keySet()) {
             System.out.println(k + " " + cv.get(k).getClass().toString());
         }
     }

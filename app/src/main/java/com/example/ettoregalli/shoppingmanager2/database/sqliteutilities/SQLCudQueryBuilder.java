@@ -93,7 +93,6 @@ public class SQLCudQueryBuilder {
     private static final String SQL_QUOTE = "\"";
     private static final String SQL_NULL = "NULL";
 
-
     /* The table addressed by the SQL statements */
     private String tableName;
     /* List of field names toghether with their own values */
@@ -383,6 +382,5 @@ public class SQLCudQueryBuilder {
             super(message);
         }
     }
-
 
 }

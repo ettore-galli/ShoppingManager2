@@ -6,7 +6,6 @@ import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.util.Scanner;
 
-
 public class InputOutputUtils {
 
     private static final int decimalDigits = 15;
