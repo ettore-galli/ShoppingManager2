@@ -3,4 +3,12 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="color_fd_A">#f0f4c3</color>
+    <color name="color_fd_B">#c5cae9</color>
+    <color name="color_fd_C">#fce4ec</color>
+    <color name="color_fd_D">#fff3e0</color>
+    <color name="color_fd_E">#e0f7fa</color>
+    <color name="color_fd_any">#e6ee9c</color>
+    <color name="color_fd_zero">#ffcdd2</color>
 </resources>

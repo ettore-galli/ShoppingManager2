@@ -214,6 +214,27 @@
                         "endOffset": 2641
                     }
                 }
+            },
+            {
+                "to": {
+                    "startLine": 37,
+                    "startColumn": 4,
+                    "startOffset": 2646,
+                    "endLine": 39,
+                    "endColumn": 12,
+                    "endOffset": 2791
+                },
+                "from": {
+                    "file": "/Users/ettoregalli/.android/build-cache/3c2dd66c7ab8772075a5bf5a135b929248d97014/output/res/values-v23/values-v23.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endLine": 4,
+                        "endColumn": 12,
+                        "endOffset": 200
+                    }
+                }
             }
         ]
     }

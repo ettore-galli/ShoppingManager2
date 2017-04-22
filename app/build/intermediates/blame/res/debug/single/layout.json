@@ -52,10 +52,6 @@
         "source": "/Users/ettoregalli/.android/build-cache/60651db94081871d1e8e2ee68cf617cf5a848686/output/res/layout/abc_list_menu_item_checkbox.xml"
     },
     {
-        "merged": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/build/intermediates/res/merged/debug/layout/notification_template_icon_group.xml",
-        "source": "/Users/ettoregalli/.android/build-cache/60651db94081871d1e8e2ee68cf617cf5a848686/output/res/layout/notification_template_icon_group.xml"
-    },
-    {
         "merged": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/build/intermediates/res/merged/debug/layout/select_dialog_item_material.xml",
         "source": "/Users/ettoregalli/.android/build-cache/60651db94081871d1e8e2ee68cf617cf5a848686/output/res/layout/select_dialog_item_material.xml"
     },
@@ -70,6 +66,10 @@
     {
         "merged": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/build/intermediates/res/merged/debug/layout/notification_template_part_time.xml",
         "source": "/Users/ettoregalli/.android/build-cache/60651db94081871d1e8e2ee68cf617cf5a848686/output/res/layout/notification_template_part_time.xml"
+    },
+    {
+        "merged": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/build/intermediates/res/merged/debug/layout/item_list_list_item.xml",
+        "source": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/src/main/res/layout/item_list_list_item.xml"
     },
     {
         "merged": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/build/intermediates/res/merged/debug/layout/abc_alert_dialog_material.xml",
@@ -92,20 +92,12 @@
         "source": "/Users/ettoregalli/.android/build-cache/60651db94081871d1e8e2ee68cf617cf5a848686/output/res/layout/notification_template_lines_media.xml"
     },
     {
-        "merged": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/build/intermediates/res/merged/debug/layout/notification_action_tombstone.xml",
-        "source": "/Users/ettoregalli/.android/build-cache/60651db94081871d1e8e2ee68cf617cf5a848686/output/res/layout/notification_action_tombstone.xml"
-    },
-    {
         "merged": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/build/intermediates/res/merged/debug/layout/notification_template_big_media.xml",
         "source": "/Users/ettoregalli/.android/build-cache/60651db94081871d1e8e2ee68cf617cf5a848686/output/res/layout/notification_template_big_media.xml"
     },
     {
         "merged": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/build/intermediates/res/merged/debug/layout/abc_list_menu_item_radio.xml",
         "source": "/Users/ettoregalli/.android/build-cache/60651db94081871d1e8e2ee68cf617cf5a848686/output/res/layout/abc_list_menu_item_radio.xml"
-    },
-    {
-        "merged": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/build/intermediates/res/merged/debug/layout/notification_action.xml",
-        "source": "/Users/ettoregalli/.android/build-cache/60651db94081871d1e8e2ee68cf617cf5a848686/output/res/layout/notification_action.xml"
     },
     {
         "merged": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/build/intermediates/res/merged/debug/layout/abc_search_view.xml",

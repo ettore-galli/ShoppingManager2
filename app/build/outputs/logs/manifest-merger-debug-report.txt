@@ -15,6 +15,7 @@ ADDED from /Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/sr
 		INJECTED from /Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/src/main/AndroidManifest.xml
 application
 ADDED from /Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/src/main/AndroidManifest.xml:5:5-18:19
+MERGED from [com.android.support:cardview-v7:24.2.1] /Users/ettoregalli/.android/build-cache/3c2dd66c7ab8772075a5bf5a135b929248d97014/output/AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:appcompat-v7:25.0.1] /Users/ettoregalli/.android/build-cache/60651db94081871d1e8e2ee68cf617cf5a848686/output/AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-v4:25.0.1] /Users/ettoregalli/.android/build-cache/4fa593803e8c9620d52bcdd28f4e6e8baa614444/output/AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-fragment:25.0.1] /Users/ettoregalli/.android/build-cache/a8bdb11582bba460a0a930888fca5b755f09ad56/output/AndroidManifest.xml:25:5-20
@@ -50,6 +51,8 @@ ADDED from /Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/sr
 		ADDED from /Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/src/main/AndroidManifest.xml:15:27-74
 uses-sdk
 INJECTED from /Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [com.android.support:recyclerview-v7:24.2.1] /Users/ettoregalli/.android/build-cache/4a866219d1b11f8e7d1fb4823e6b948f18e0062d/output/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:cardview-v7:24.2.1] /Users/ettoregalli/.android/build-cache/3c2dd66c7ab8772075a5bf5a135b929248d97014/output/AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:appcompat-v7:25.0.1] /Users/ettoregalli/.android/build-cache/60651db94081871d1e8e2ee68cf617cf5a848686/output/AndroidManifest.xml:21:5-23:78
 MERGED from [com.android.support:support-v4:25.0.1] /Users/ettoregalli/.android/build-cache/4fa593803e8c9620d52bcdd28f4e6e8baa614444/output/AndroidManifest.xml:21:5-23:54
 MERGED from [com.android.support:support-fragment:25.0.1] /Users/ettoregalli/.android/build-cache/a8bdb11582bba460a0a930888fca5b755f09ad56/output/AndroidManifest.xml:21:5-23:60

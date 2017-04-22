@@ -4,6 +4,10 @@
         "source": "/Users/ettoregalli/.android/build-cache/60651db94081871d1e8e2ee68cf617cf5a848686/output/res/drawable/notification_icon_background.xml"
     },
     {
+        "merged": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/build/intermediates/res/merged/debug/drawable/ic_edit_black_24dp.xml",
+        "source": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/src/main/res/drawable/ic_edit_black_24dp.xml"
+    },
+    {
         "merged": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_holo_dark.xml",
         "source": "/Users/ettoregalli/.android/build-cache/60651db94081871d1e8e2ee68cf617cf5a848686/output/res/drawable/abc_list_selector_holo_dark.xml"
     },
@@ -22,6 +26,10 @@
     {
         "merged": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/build/intermediates/res/merged/debug/drawable/abc_vector_test.xml",
         "source": "/Users/ettoregalli/.android/build-cache/60651db94081871d1e8e2ee68cf617cf5a848686/output/res/drawable/abc_vector_test.xml"
+    },
+    {
+        "merged": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/build/intermediates/res/merged/debug/drawable/ic_fast_forward_black_24dp.xml",
+        "source": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/src/main/res/drawable/ic_fast_forward_black_24dp.xml"
     },
     {
         "merged": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/build/intermediates/res/merged/debug/drawable/abc_ic_clear_material.xml",
@@ -92,20 +100,16 @@
         "source": "/Users/ettoregalli/.android/build-cache/60651db94081871d1e8e2ee68cf617cf5a848686/output/res/drawable/abc_list_selector_background_transition_holo_dark.xml"
     },
     {
-        "merged": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/build/intermediates/res/merged/debug/drawable/abc_edit_text_material.xml",
-        "source": "/Users/ettoregalli/.android/build-cache/60651db94081871d1e8e2ee68cf617cf5a848686/output/res/drawable/abc_edit_text_material.xml"
-    },
-    {
         "merged": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/build/intermediates/res/merged/debug/drawable/abc_ratingbar_small_material.xml",
         "source": "/Users/ettoregalli/.android/build-cache/60651db94081871d1e8e2ee68cf617cf5a848686/output/res/drawable/abc_ratingbar_small_material.xml"
     },
     {
-        "merged": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/build/intermediates/res/merged/debug/drawable/abc_btn_colored_material.xml",
-        "source": "/Users/ettoregalli/.android/build-cache/60651db94081871d1e8e2ee68cf617cf5a848686/output/res/drawable/abc_btn_colored_material.xml"
-    },
-    {
         "merged": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/build/intermediates/res/merged/debug/drawable/abc_btn_check_material.xml",
         "source": "/Users/ettoregalli/.android/build-cache/60651db94081871d1e8e2ee68cf617cf5a848686/output/res/drawable/abc_btn_check_material.xml"
+    },
+    {
+        "merged": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/build/intermediates/res/merged/debug/drawable/ic_clear_black_24dp.xml",
+        "source": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/src/main/res/drawable/ic_clear_black_24dp.xml"
     },
     {
         "merged": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/build/intermediates/res/merged/debug/drawable/abc_ic_arrow_drop_right_black_24dp.xml",
@@ -118,6 +122,10 @@
     {
         "merged": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/build/intermediates/res/merged/debug/drawable/abc_seekbar_thumb_material.xml",
         "source": "/Users/ettoregalli/.android/build-cache/60651db94081871d1e8e2ee68cf617cf5a848686/output/res/drawable/abc_seekbar_thumb_material.xml"
+    },
+    {
+        "merged": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/build/intermediates/res/merged/debug/drawable/ic_add_circle_outline_black_24dp.xml",
+        "source": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/src/main/res/drawable/ic_add_circle_outline_black_24dp.xml"
     },
     {
         "merged": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/build/intermediates/res/merged/debug/drawable/abc_ic_menu_overflow_material.xml",
@@ -144,11 +152,19 @@
         "source": "/Users/ettoregalli/.android/build-cache/60651db94081871d1e8e2ee68cf617cf5a848686/output/res/drawable/notification_bg_low.xml"
     },
     {
+        "merged": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/build/intermediates/res/merged/debug/drawable/carrello.png",
+        "source": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/src/main/res/drawable/carrello.png"
+    },
+    {
         "merged": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/build/intermediates/res/merged/debug/drawable/abc_btn_default_mtrl_shape.xml",
         "source": "/Users/ettoregalli/.android/build-cache/60651db94081871d1e8e2ee68cf617cf5a848686/output/res/drawable/abc_btn_default_mtrl_shape.xml"
     },
     {
         "merged": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/build/intermediates/res/merged/debug/drawable/abc_ic_search_api_material.xml",
         "source": "/Users/ettoregalli/.android/build-cache/60651db94081871d1e8e2ee68cf617cf5a848686/output/res/drawable/abc_ic_search_api_material.xml"
+    },
+    {
+        "merged": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/build/intermediates/res/merged/debug/drawable/ic_mic_black_24dp.xml",
+        "source": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/src/main/res/drawable/ic_mic_black_24dp.xml"
     }
 ]

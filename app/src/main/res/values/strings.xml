@@ -1,3 +1,22 @@
 <resources>
-    <string name="app_name">SHoppingManager2</string>
+    <string name="app_name">Shopping Manager V2</string>
+    <string name="list_grand_total_title">Totale</string>
+    <string name="main_activity_title">Lista della spesa</string>
+    <string name="item_edit_insert">Inserimento</string>
+    <string name="item_edit_update">Modifica</string>
+    <string name="item_edit_delete">Cancellazione</string>
+    <string name="enter_key">Ok</string>
+    <string name="cancel_key">Indietro</string>
+    <string name="edit_key">M</string>
+    <string name="delete_key">C</string>
+    <string name="new_key">+</string>
+    <string name="minus_key">+/-</string>
+    <string name="fast_insert">&gt;&gt;</string>
+    <string name="delete_dialog_title">Cancellazione</string>
+    <string name="delete_dialog_message">Cancellare l\'elemento?</string>
+    <string name="delete_dialog_yes">Ok</string>
+    <string name="delete_dialog_no">Annulla</string>
+    <string name="number_parse_error">Errore nel formato numerico</string>
+    <string name="speech_input_on" />
+    <string name="speech_input_off" />
 </resources>

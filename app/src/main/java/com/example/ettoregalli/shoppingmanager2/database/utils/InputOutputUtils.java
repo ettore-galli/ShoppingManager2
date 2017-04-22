@@ -8,23 +8,34 @@ import java.util.Scanner;
 
 public class InputOutputUtils {
 
-    private static final int decimalDigits = 15;
     private static final RoundingMode roundingMode = RoundingMode.HALF_UP;
-
+    private static final int DefautDecimalDigits = 2;
+    private int decimalDigits;
     private DecimalFormatSymbols dfs;
     private Scanner sc;
     private DecimalFormat df;
 
-    public InputOutputUtils() {
-
+    /**
+     * Crea una nuova istanza
+     */
+    public InputOutputUtils(int decimalDigits) {
+        this.decimalDigits = decimalDigits;
         this.dfs = new DecimalFormatSymbols();
 
         this.df = new DecimalFormat();
         this.df.setRoundingMode(InputOutputUtils.roundingMode);
         this.df.setDecimalFormatSymbols(this.dfs);
         this.df.setGroupingUsed(false);
-        this.df.setMaximumFractionDigits(InputOutputUtils.decimalDigits);
-        this.df.setMinimumFractionDigits(InputOutputUtils.decimalDigits);
+        this.df.setMaximumFractionDigits(this.decimalDigits);
+        this.df.setMinimumFractionDigits(this.decimalDigits);
+    }
+
+    /**
+     * Crea una nuova istanza
+     */
+    public InputOutputUtils() {
+        this(DefautDecimalDigits);
+
     }
 
     /**
@@ -49,7 +60,7 @@ public class InputOutputUtils {
                 throw new InputOutputException(ge.getMessage());
             }
             if (bdOut != null) {
-                bdOut.setScale(InputOutputUtils.decimalDigits);
+                bdOut.setScale(this.decimalDigits);
             }
         }
         return bdOut;
