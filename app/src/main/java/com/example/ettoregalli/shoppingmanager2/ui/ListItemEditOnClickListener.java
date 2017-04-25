@@ -1,5 +1,7 @@
 package com.example.ettoregalli.shoppingmanager2.ui;
 
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
 
 /**
@@ -22,6 +24,12 @@ public class ListItemEditOnClickListener implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        //Toast.makeText(c, "", Toast.LENGTH_SHORT).show();
+        Intent insert_item_intent = new Intent(mainListEditActivity.getApplicationContext(), EditItemActivity.class);
+        Bundle callPars = new Bundle();
+        callPars.putString(ShoppingListDriverConstants.OPEN_EDIT_FUNCTION, ShoppingListDriverConstants.OPEN_EDIT_FOR_UPDATE);
+        callPars.putInt(ShoppingListDriverConstants.INTENT_PARAMETER_LIST_ID, listId);
+        callPars.putInt(ShoppingListDriverConstants.INTENT_PARAMETER_ITEM_ID, itemId);
+        insert_item_intent.putExtras(callPars);
+        mainListEditActivity.startActivityForResult(insert_item_intent, ShoppingListDriverConstants.INTENT_RESULT_ANY);
     }
 }

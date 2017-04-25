@@ -32,8 +32,8 @@ public class ShoppingListDAO extends ShoppingListManagerBaseDAO {
                 "item_unit_price",
                 "item_amount_added",
                 TOTAL_PRICE_FORMULA + " AS item_total_price ",
-                "IFNULL(item_final_destination, '" + UNDEFINED_FINAL_DESTINATION + "') AS item_final_destination ",
-                "(SELECT 1 + COUNT(DISTINCT item_final_destination) FROM list_items AS fd WHERE fd.list_id=li.list_id AND fd.item_final_destination < li.item_final_destination) AS item_final_destination_visual_index "
+                FINAL_DESTINATION_FORMULA + " AS item_final_destination ",
+                FINAL_DESTINATION_VISUAL_INDEX_FORMULA + " AS item_final_destination_visual_index "
         };
         String selection;
         String[] selectionArgs;
@@ -130,12 +130,54 @@ public class ShoppingListDAO extends ShoppingListManagerBaseDAO {
         dltListItem(getWritableDatabase(), listId, itemId);
     }
 
-    public void dltListItem(SQLiteDatabase sqLiteDatabase, int listId, int itemId) throws SQLCudQueryBuilder.ClassNotSupportedException {
+    private void dltListItem(SQLiteDatabase sqLiteDatabase, int listId, int itemId) throws SQLCudQueryBuilder.ClassNotSupportedException {
         sqLiteDatabase.beginTransaction();
-        String q = getListItemQueryBuilder(listId, itemId, null).getUpdateQuery();
+        String q = getListItemQueryBuilder(listId, itemId, null).getDeleteQuery();
         sqLiteDatabase.execSQL(q);
         sqLiteDatabase.setTransactionSuccessful();
         sqLiteDatabase.endTransaction();
     }
+
+    public List<String> getFinalDestinationsList(int listId, int itemId) {
+        return getFinalDestinationsList(getReadableDatabase(), listId, itemId);
+    }
+
+    private List<String> getFinalDestinationsList(SQLiteDatabase sqLiteDatabase, int listId, int itemId) {
+        List<String> finalDestinations = new ArrayList<String>();
+        String[] LIST_ITEMS_TABLE_COLUMNS = {FINAL_DESTINATION_FORMULA};
+
+        String selection;
+        String[] selectionArgs;
+        if (itemId == 0) {
+            selection = "(list_id=?)";
+            selectionArgs = new String[1];
+            selectionArgs[0] = String.valueOf(listId);
+        } else {
+            selection = "(list_id=?) AND (item_id=?)";
+            selectionArgs = new String[2];
+            selectionArgs[0] = String.valueOf(listId);
+            selectionArgs[1] = String.valueOf(itemId);
+        }
+
+        String orderBy = "list_id, item_id";
+
+        Cursor slcur = sqLiteDatabase.query(
+                true,
+                LIST_ITEMS_TABLE_NAME + " AS li",         // The table to query
+                LIST_ITEMS_TABLE_COLUMNS,                 // The columns to return
+                selection,                                // The columns for the WHERE clause
+                selectionArgs,                            // The values for the WHERE clause
+                null,                                     // don't group the rows
+                null,                                     // don't filter by row groups
+                null,                                     // The sort order
+                null
+        );
+
+        while (slcur.moveToNext()) {
+            finalDestinations.add(slcur.getString(0));
+        }
+
+        return finalDestinations;
+    } //
 
 } // ShoppingListDAO

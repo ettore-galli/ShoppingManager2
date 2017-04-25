@@ -1,9 +1,13 @@
 package com.example.ettoregalli.shoppingmanager2.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.example.ettoregalli.shoppingmanager2.R;
 import com.example.ettoregalli.shoppingmanager2.database.dao.ShoppingListDAO;
@@ -30,6 +34,9 @@ public class MainListEditActivity extends AppCompatActivity {
     RecyclerView.LayoutManager slLayout;
     ShoppingListAdapter slAdapter;
 
+    // Pulsante nuova voce
+    ImageButton insertNewItem;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,14 +53,28 @@ public class MainListEditActivity extends AppCompatActivity {
         this.slAdapter = new ShoppingListAdapter(this.displayList, this);
         this.shoppingListRecyclerView.setAdapter(this.slAdapter);
 
-        basicTest();
+        /* Inserimento nuova voce */
+        insertNewItem = (ImageButton) findViewById(R.id.insertNewItem);
+        insertNewItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent insert_item_intent = new Intent(getApplicationContext(), EditItemActivity.class);
+                Bundle callPars = new Bundle();
+                callPars.putString(ShoppingListDriverConstants.OPEN_EDIT_FUNCTION, ShoppingListDriverConstants.OPEN_EDIT_FOR_INSERT);
+                callPars.putInt(ShoppingListDriverConstants.INTENT_PARAMETER_LIST_ID, LISTA_GESTITA);
+                insert_item_intent.putExtras(callPars);
+                startActivityForResult(insert_item_intent, ShoppingListDriverConstants.INTENT_RESULT_ANY);
+            }
+        });
+
+        //basicTest();
         viewrefresh();
     }
 
     /**
      * Refresh visualizzazione
      */
-    private void viewrefresh() {
+    public void viewrefresh() {
         /* Lista dettaglio */
         this.displayList.clear();
         this.displayList.addAll(shoppingListDAO.getListItemList(LISTA_GESTITA, 0));
@@ -66,10 +87,13 @@ public class MainListEditActivity extends AppCompatActivity {
 
         String msg;
         ListItem li = new ListItem();
+        shoppingListDAO.scratchDelete();
         try {
-            li = (new ListItemInputOutputUtils()).getListItemFromInputFields("0", "0", "Articolo 1,", "", "1", "3.14", "");
+            li = (new ListItemInputOutputUtils()).getListItemFromInputFields("0", "0", "Articolo 1", "", "1", "3.14", "", "TIGLI");
             shoppingListDAO.addListItem(LISTA_GESTITA, li);
-            li = (new ListItemInputOutputUtils()).getListItemFromInputFields("0", "0", "Articolo 2,", "", "1", "2.71", "");
+            li = (new ListItemInputOutputUtils()).getListItemFromInputFields("0", "0", "Articolo 2", "", "1", "2.71", "", "TIGLI");
+            shoppingListDAO.addListItem(LISTA_GESTITA, li);
+            li = (new ListItemInputOutputUtils()).getListItemFromInputFields("0", "0", "Articolo 3", "", "1", "5.16", "", "DRESANO");
             shoppingListDAO.addListItem(LISTA_GESTITA, li);
         } catch (Exception e) {
             e.printStackTrace();
@@ -82,6 +106,21 @@ public class MainListEditActivity extends AppCompatActivity {
             System.out.println(el.getDescription() + " " + el.getQuantity().toString() + " " + iou.getBigDecimalStringOutput(el.getUnitPrice()));
 
         }
+    }
+
+    /**
+     * Dispatch incoming result to the correct fragment.
+     *
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Toast.makeText(getApplicationContext(), "refresh", Toast.LENGTH_LONG).show();
+        viewrefresh();
+
     }
 
     /**

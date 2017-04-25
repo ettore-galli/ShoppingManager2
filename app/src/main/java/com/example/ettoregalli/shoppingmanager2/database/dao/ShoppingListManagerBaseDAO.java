@@ -7,6 +7,10 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.ettoregalli.shoppingmanager2.database.utils.InputOutputUtils;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class ShoppingListManagerBaseDAO extends SQLiteOpenHelper {
     /* Attributi di classe */
     protected static final String DATABASE_NAME = "shopping_list.db";
@@ -50,6 +54,14 @@ public class ShoppingListManagerBaseDAO extends SQLiteOpenHelper {
             "  PRIMARY KEY(list_id, item_id) " +
             ")";
     protected static final String TOTAL_PRICE_FORMULA = "(item_quantity*item_unit_price + item_amount_added)";
+    protected static final String FINAL_DESTINATION_FORMULA = "IFNULL(item_final_destination, '" + UNDEFINED_FINAL_DESTINATION + "')";
+    protected static final String FINAL_DESTINATION_VISUAL_INDEX_FORMULA = "(SELECT 1 + COUNT(DISTINCT item_final_destination) FROM list_items AS fd WHERE fd.list_id=li.list_id AND fd.item_final_destination < li.item_final_destination)";
+
+    /* Unità di misura */
+    private static final String UNIT_NR = "NR";
+    private static final String UNIT_KG = "KG";
+    private static final String UNIT_LT = "LT";
+    private static final String[] UNITS = {UNIT_NR, UNIT_KG, UNIT_LT};
 
     /* Utilities di input/output */
     InputOutputUtils iou;
@@ -141,6 +153,10 @@ public class ShoppingListManagerBaseDAO extends SQLiteOpenHelper {
             nextItemId = cGetListId.getInt(0);
         }
         return nextItemId;
+    }
+
+    public List<String> getUnitsList() {
+        return new ArrayList<String>(Arrays.asList(UNITS));
     }
 
 } // ShoppingListDAO

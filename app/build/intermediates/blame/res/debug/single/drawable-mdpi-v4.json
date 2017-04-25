@@ -72,12 +72,12 @@
         "source": "/Users/ettoregalli/.android/build-cache/60651db94081871d1e8e2ee68cf617cf5a848686/output/res/drawable-mdpi-v4/abc_list_pressed_holo_dark.9.png"
     },
     {
-        "merged": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_btn_radio_to_on_mtrl_000.png",
-        "source": "/Users/ettoregalli/.android/build-cache/60651db94081871d1e8e2ee68cf617cf5a848686/output/res/drawable-mdpi-v4/abc_btn_radio_to_on_mtrl_000.png"
-    },
-    {
         "merged": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_menu_hardkey_panel_mtrl_mult.9.png",
         "source": "/Users/ettoregalli/.android/build-cache/60651db94081871d1e8e2ee68cf617cf5a848686/output/res/drawable-mdpi-v4/abc_menu_hardkey_panel_mtrl_mult.9.png"
+    },
+    {
+        "merged": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_btn_radio_to_on_mtrl_000.png",
+        "source": "/Users/ettoregalli/.android/build-cache/60651db94081871d1e8e2ee68cf617cf5a848686/output/res/drawable-mdpi-v4/abc_btn_radio_to_on_mtrl_000.png"
     },
     {
         "merged": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/build/intermediates/res/merged/debug/drawable-mdpi-v4/abc_ic_menu_selectall_mtrl_alpha.png",

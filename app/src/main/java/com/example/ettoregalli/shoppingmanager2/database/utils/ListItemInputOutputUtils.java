@@ -16,6 +16,7 @@ public class ListItemInputOutputUtils {
      * @param quantityInput
      * @param unitPriceInput
      * @param amountAddedInput
+     * @param finalDestinationInput
      * @return
      */
     public ListItem getListItemFromInputFields(
@@ -25,7 +26,8 @@ public class ListItemInputOutputUtils {
             String unitInput,
             String quantityInput,
             String unitPriceInput,
-            String amountAddedInput
+            String amountAddedInput,
+            String finalDestinationInput
     ) throws InputOutputException {
         /* Istanziazione */
         ListItem li = new ListItem();
@@ -48,6 +50,7 @@ public class ListItemInputOutputUtils {
         if (li.getAmountAdded() == null) {
             li.setAmountAdded(BigDecimal.ZERO);
         }
+        li.setFinalDestination(finalDestinationInput);
         return li;
 
     }

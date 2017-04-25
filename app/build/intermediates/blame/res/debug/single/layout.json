@@ -32,6 +32,10 @@
         "source": "/Users/ettoregalli/.android/build-cache/60651db94081871d1e8e2ee68cf617cf5a848686/output/res/layout/abc_expanded_menu_layout.xml"
     },
     {
+        "merged": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/build/intermediates/res/merged/debug/layout/activity_edit_item.xml",
+        "source": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/src/main/res/layout/activity_edit_item.xml"
+    },
+    {
         "merged": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/build/intermediates/res/merged/debug/layout/support_simple_spinner_dropdown_item.xml",
         "source": "/Users/ettoregalli/.android/build-cache/60651db94081871d1e8e2ee68cf617cf5a848686/output/res/layout/support_simple_spinner_dropdown_item.xml"
     },

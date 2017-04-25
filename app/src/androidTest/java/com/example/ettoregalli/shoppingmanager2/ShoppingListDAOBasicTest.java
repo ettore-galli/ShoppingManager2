@@ -40,9 +40,9 @@ public class ShoppingListDAOBasicTest {
 
         ListItem li = new ListItem();
 
-        li = (new ListItemInputOutputUtils()).getListItemFromInputFields((new Integer(test_list_id)).toString(), "1", "Articolo 1,", "", "1", "3.14", "");
+        li = (new ListItemInputOutputUtils()).getListItemFromInputFields((new Integer(test_list_id)).toString(), "1", "Articolo 1,", "", "1", "3.14", "", "TIGLI");
         sld.addListItem(test_list_id, li);
-        li = (new ListItemInputOutputUtils()).getListItemFromInputFields((new Integer(test_list_id)).toString(), "2", "Articolo 2,", "", "1", "2.71", "");
+        li = (new ListItemInputOutputUtils()).getListItemFromInputFields((new Integer(test_list_id)).toString(), "2", "Articolo 2,", "", "1", "2.71", "", "TIGLI");
         sld.addListItem(test_list_id, li);
 
         List<ListItem> lst = sld.getListItemList(test_list_id, 0);
@@ -51,7 +51,7 @@ public class ShoppingListDAOBasicTest {
 
         }
 
-        li = (new ListItemInputOutputUtils()).getListItemFromInputFields("0", "0", "Articolo II,", "", "1", "4.71", "");
+        li = (new ListItemInputOutputUtils()).getListItemFromInputFields("0", "0", "Articolo II,", "", "1", "4.71", "", "DRESANO");
         sld.updListItem(test_list_id, 2, li);
 
         lst = sld.getListItemList(test_list_id, 0);

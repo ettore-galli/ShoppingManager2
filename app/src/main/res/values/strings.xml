@@ -17,6 +17,6 @@
     <string name="delete_dialog_yes">Ok</string>
     <string name="delete_dialog_no">Annulla</string>
     <string name="number_parse_error">Errore nel formato numerico</string>
-    <string name="speech_input_on" />
-    <string name="speech_input_off" />
+    <string name="speech_input_on"/>
+    <string name="speech_input_off"/>
 </resources>

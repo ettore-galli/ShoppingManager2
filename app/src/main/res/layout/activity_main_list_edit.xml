@@ -59,15 +59,14 @@
                         android:layout_weight="20"
                         android:src="@drawable/ic_add_circle_outline_black_24dp"/>
 
-                    <ToggleButton
+                    <ImageButton
                         android:id="@+id/insertViaSpeech"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="20"
-                        android:button="@drawable/ic_mic_black_24dp"
                         android:checked="false"
-                        android:textOff=""
-                        android:textOn="..."/>
+                        android:src="@drawable/ic_mic_black_24dp"
+                        />
 
                 </LinearLayout>
 

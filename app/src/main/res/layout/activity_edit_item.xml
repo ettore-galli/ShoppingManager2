@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:card_view="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+
+<android.support.v7.widget.CardView
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="@android:style/TextAppearance.Material.Large" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="100"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/itemName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="70"
+                android:textAppearance="@android:style/TextAppearance.Material.Large"/>
+
+            <AutoCompleteTextView
+                android:id="@+id/finalDestination"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="30"
+                android:gravity="left"
+                android:textAlignment="gravity"
+                android:textAppearance="@android:style/TextAppearance.Material.Medium" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="100">
+
+            <EditText
+                android:id="@+id/itemDescription"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="80"
+                android:textAppearance="@android:style/TextAppearance.Material.Medium" />
+
+            <Spinner
+                android:id="@+id/unit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="15"
+                android:gravity="center"
+                android:textAlignment="gravity"
+                android:textAppearance="@android:style/TextAppearance.Material.Medium" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="100">
+
+            <EditText
+                android:id="@+id/quantity"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="20"
+                android:digits="-1234567890,."
+                android:gravity="right"
+                android:inputType="number|numberSigned|numberDecimal"
+                android:selectAllOnFocus="true"
+                android:textAlignment="gravity"
+                android:textAppearance="@android:style/TextAppearance.Material.Medium" />
+
+
+            <EditText
+                android:id="@+id/unitPrice"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="20"
+                android:digits="-1234567890,."
+                android:gravity="right"
+                android:inputType="number|numberSigned|numberDecimal"
+                android:selectAllOnFocus="true"
+                android:textAlignment="gravity"
+                android:textAppearance="@android:style/TextAppearance.Material.Medium" />
+
+            <Button
+                android:id="@+id/unitPriceMinus"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="10"
+                android:text="@string/minus_key" />
+
+            <EditText
+                android:id="@+id/amountAdded"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="20"
+                android:digits="-1234567890,."
+                android:gravity="right"
+                android:inputType="number|numberSigned|numberDecimal"
+                android:selectAllOnFocus="true"
+                android:textAlignment="gravity"
+                android:textAppearance="@android:style/TextAppearance.Material.Medium" />
+
+            <Button
+                android:id="@+id/amountAddedMinus"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="10"
+                android:text="@string/minus_key" />
+
+            <TextView
+                android:id="@+id/totalPrice"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="20"
+                android:gravity="right"
+                android:textAlignment="gravity"
+                android:textAppearance="@android:style/TextAppearance.Material.Medium" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="100">
+
+            <Button
+                android:id="@+id/cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:text="@string/cancel_key" />
+
+            <Button
+                android:id="@+id/enter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                android:text="@string/enter_key" />
+
+        </LinearLayout>
+    </LinearLayout>
+</android.support.v7.widget.CardView>
+
+
+</LinearLayout>

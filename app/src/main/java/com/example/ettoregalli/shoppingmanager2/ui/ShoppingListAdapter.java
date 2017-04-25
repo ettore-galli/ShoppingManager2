@@ -58,7 +58,19 @@ public class ShoppingListAdapter extends RecyclerView.Adapter<ShoppingListItemVi
         int listId = sle.getListId();
         int itemId = sle.getItemId();
 
-        holder.description.setText(sle.getDescription()); //TODO: Migliorare
+        String descr = "[" + sle.getFinalDestination() + "] " + sle.getDescription() + "; " +
+                iou.getBigDecimalStringOutput(sle.getQuantity()) + " " + sle.getUnit().trim() + " x " + iou.getBigDecimalStringOutput(sle.getUnitPrice());
+
+        float add = sle.getAmountAdded().floatValue();
+        String displayAdded = iou.getBigDecimalStringOutput(sle.getAmountAdded());
+        if (add < 0) {
+            displayAdded = " + " + displayAdded;
+        }
+        if (add != 0) {
+            descr += displayAdded;
+        }
+
+        holder.description.setText(descr);
         holder.totalPrice.setText(iou.getBigDecimalStringOutput(sle.getTotalPrice()));
 
         holder.edit.setOnClickListener(new ListItemEditOnClickListener(holder.itemView, mainListEditActivity, listId, itemId));

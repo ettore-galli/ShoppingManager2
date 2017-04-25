@@ -1,8 +1,8 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/src/main/AndroidManifest.xml:2:1-20:12
+ADDED from /Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/src/main/AndroidManifest.xml:2:1-22:12
 	package
-		ADDED from /Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/src/main/AndroidManifest.xml:3:5-55
+		ADDED from /Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/src/main/AndroidManifest.xml:3:11-61
 		INJECTED from /Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/src/main/AndroidManifest.xml
 	android:versionName
@@ -14,7 +14,7 @@ ADDED from /Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/sr
 		INJECTED from /Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/src/main/AndroidManifest.xml
 application
-ADDED from /Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/src/main/AndroidManifest.xml:5:5-18:19
+ADDED from /Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/src/main/AndroidManifest.xml:5:5-20:19
 MERGED from [com.android.support:cardview-v7:24.2.1] /Users/ettoregalli/.android/build-cache/3c2dd66c7ab8772075a5bf5a135b929248d97014/output/AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:appcompat-v7:25.0.1] /Users/ettoregalli/.android/build-cache/60651db94081871d1e8e2ee68cf617cf5a848686/output/AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-v4:25.0.1] /Users/ettoregalli/.android/build-cache/4fa593803e8c9620d52bcdd28f4e6e8baa614444/output/AndroidManifest.xml:25:5-20
@@ -25,6 +25,7 @@ MERGED from [com.android.support:support-core-utils:25.0.1] /Users/ettoregalli/.
 MERGED from [com.android.support:animated-vector-drawable:25.0.1] /Users/ettoregalli/.android/build-cache/af379d1def2316c9b7bee2181a900d0c68b05418/output/AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:support-vector-drawable:25.0.1] /Users/ettoregalli/.android/build-cache/d6aa60b3c58697356ef7202d1ac74c5cd5fc82c2/output/AndroidManifest.xml:23:5-20
 MERGED from [com.android.support:support-compat:25.0.1] /Users/ettoregalli/.android/build-cache/f0cb57231437daeea8d62499b2254ae1a6839630/output/AndroidManifest.xml:25:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.0-alpha9] /Users/ettoregalli/.android/build-cache/a03d5a34def62fc7425a864dd1dd96b654c0a660/output/AndroidManifest.xml:9:5-20
 	android:label
 		ADDED from /Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/src/main/AndroidManifest.xml:8:9-41
 	android:supportsRtl
@@ -42,13 +43,17 @@ ADDED from /Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/sr
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
 ADDED from /Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/src/main/AndroidManifest.xml:12:13-16:29
 action#android.intent.action.MAIN
-ADDED from /Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/src/main/AndroidManifest.xml:13:17-69
+ADDED from /Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/src/main/AndroidManifest.xml:13:17-68
 	android:name
 		ADDED from /Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/src/main/AndroidManifest.xml:13:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/src/main/AndroidManifest.xml:15:17-77
+ADDED from /Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/src/main/AndroidManifest.xml:15:17-76
 	android:name
 		ADDED from /Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/src/main/AndroidManifest.xml:15:27-74
+activity#com.example.ettoregalli.shoppingmanager2.ui.EditItemActivity
+ADDED from /Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/src/main/AndroidManifest.xml:18:9-19:20
+	android:name
+		ADDED from /Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/src/main/AndroidManifest.xml:18:19-54
 uses-sdk
 INJECTED from /Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:recyclerview-v7:24.2.1] /Users/ettoregalli/.android/build-cache/4a866219d1b11f8e7d1fb4823e6b948f18e0062d/output/AndroidManifest.xml:20:5-43
@@ -62,6 +67,7 @@ MERGED from [com.android.support:support-core-utils:25.0.1] /Users/ettoregalli/.
 MERGED from [com.android.support:animated-vector-drawable:25.0.1] /Users/ettoregalli/.android/build-cache/af379d1def2316c9b7bee2181a900d0c68b05418/output/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-vector-drawable:25.0.1] /Users/ettoregalli/.android/build-cache/d6aa60b3c58697356ef7202d1ac74c5cd5fc82c2/output/AndroidManifest.xml:21:5-43
 MERGED from [com.android.support:support-compat:25.0.1] /Users/ettoregalli/.android/build-cache/f0cb57231437daeea8d62499b2254ae1a6839630/output/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support.constraint:constraint-layout:1.0.0-alpha9] /Users/ettoregalli/.android/build-cache/a03d5a34def62fc7425a864dd1dd96b654c0a660/output/AndroidManifest.xml:5:5-7:41
 	tools:overrideLibrary
 		ADDED from [com.android.support:appcompat-v7:25.0.1] /Users/ettoregalli/.android/build-cache/60651db94081871d1e8e2ee68cf617cf5a848686/output/AndroidManifest.xml:23:9-75
 	android:targetSdkVersion
