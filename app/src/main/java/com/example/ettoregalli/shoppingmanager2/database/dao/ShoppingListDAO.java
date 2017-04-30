@@ -5,7 +5,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.ettoregalli.shoppingmanager2.database.model.ListItem;
+import com.example.ettoregalli.shoppingmanager2.database.model.ListSubtotal;
 import com.example.ettoregalli.shoppingmanager2.database.sqliteutilities.SQLCudQueryBuilder;
+import com.example.ettoregalli.shoppingmanager2.ui.ShoppingListDriverConstants;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -179,5 +181,63 @@ public class ShoppingListDAO extends ShoppingListManagerBaseDAO {
 
         return finalDestinations;
     } //
+
+    public List<ListSubtotal> getListSubtotalList(int listId, int itemId) {
+        return getListSubtotalList(getReadableDatabase(), listId, itemId);
+    }
+
+    private List<ListSubtotal> getListSubtotalList(SQLiteDatabase sqLiteDatabase, int listId, int itemId) {
+        List<ListSubtotal> listSubtotals = new ArrayList<ListSubtotal>();
+        BigDecimal grandTotal = new BigDecimal(0);
+        String[] LIST_ITEMS_TABLE_COLUMNS = {
+                FINAL_DESTINATION_FORMULA + " AS item_final_destination ",
+                "SUM(" + TOTAL_PRICE_FORMULA + ") AS item_total_price ",
+                FINAL_DESTINATION_VISUAL_INDEX_FORMULA + " AS item_final_destination_visual_index "
+        };
+        String selection;
+        String[] selectionArgs;
+
+        if (itemId == 0) {
+            selection = "(list_id=?)";
+            selectionArgs = new String[1];
+            selectionArgs[0] = String.valueOf(listId);
+        } else {
+            selection = "(list_id=?) AND (item_id=?)";
+            selectionArgs = new String[2];
+            selectionArgs[0] = String.valueOf(listId);
+            selectionArgs[1] = String.valueOf(itemId);
+        }
+
+        Cursor slcur = sqLiteDatabase.query(
+                LIST_ITEMS_TABLE_NAME + " AS li",         // The table to query
+                LIST_ITEMS_TABLE_COLUMNS,                 // The columns to return
+                selection,                                // The columns for the WHERE clause
+                selectionArgs,                            // The values for the WHERE clause
+                "item_final_destination",                 // don't group the rows
+                null,                                     // don't filter by row groups
+                "item_final_destination"                  // The sort order
+        );
+
+        /* Subtotali */
+        while (slcur.moveToNext()) {
+            ListSubtotal li = new ListSubtotal();
+            BigDecimal totalPrice = new BigDecimal(slcur.getDouble(slcur.getColumnIndex("item_total_price")));
+            li.setTotalPrice(totalPrice);
+            li.setFinalDestination(slcur.getString(slcur.getColumnIndex("item_final_destination")));
+            li.setFinalDestinationVisualIndex(slcur.getInt(slcur.getColumnIndex("item_final_destination_visual_index")));
+            grandTotal=grandTotal.add(totalPrice);
+            listSubtotals.add(li);
+        }
+
+        /* Totale generale */
+        ListSubtotal li = new ListSubtotal();
+        li.setTotalPrice(grandTotal);
+        li.setFinalDestination(ShoppingListDriverConstants.SUBTOTALS_GRAND_TOTAL_CAPTION);
+        li.setFinalDestinationVisualIndex(0);
+
+        listSubtotals.add(li);
+
+        return listSubtotals;
+    }
 
 } // ShoppingListDAO

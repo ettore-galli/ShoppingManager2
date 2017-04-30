@@ -42,7 +42,7 @@ public class ListItemDeleteOnClickListener implements View.OnClickListener {
                 } catch (SQLCudQueryBuilder.ClassNotSupportedException e) {
                     e.printStackTrace();
                 }
-                mainListEditActivity.viewrefresh();
+                mainListEditActivity.loadItemList();
             }
         });
         builder.setNegativeButton(R.string.delete_dialog_no, new DialogInterface.OnClickListener() {

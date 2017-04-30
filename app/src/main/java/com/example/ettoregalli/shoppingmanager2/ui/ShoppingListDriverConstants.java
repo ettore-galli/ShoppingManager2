@@ -14,4 +14,6 @@ public class ShoppingListDriverConstants {
     public static final String INTENT_PARAMETER_LIST_ID = "INTENT_PARAMETER_LIST_ID";
     public static final String INTENT_PARAMETER_ITEM_ID = "INTENT_PARAMETER_ITEM_ID";
 
+
+    public static final String SUBTOTALS_GRAND_TOTAL_CAPTION = "TOTALE";
 }

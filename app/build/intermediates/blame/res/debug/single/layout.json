@@ -68,6 +68,10 @@
         "source": "/Users/ettoregalli/.android/build-cache/60651db94081871d1e8e2ee68cf617cf5a848686/output/res/layout/abc_action_mode_close_item_material.xml"
     },
     {
+        "merged": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/build/intermediates/res/merged/debug/layout/final_destination_totals_list_item.xml",
+        "source": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/src/main/res/layout/final_destination_totals_list_item.xml"
+    },
+    {
         "merged": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/build/intermediates/res/merged/debug/layout/notification_template_part_time.xml",
         "source": "/Users/ettoregalli/.android/build-cache/60651db94081871d1e8e2ee68cf617cf5a848686/output/res/layout/notification_template_part_time.xml"
     },

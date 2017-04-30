@@ -1,5 +1,11 @@
 <resources>
     <string name="app_name">Shopping Manager V2</string>
+
+    <string name="lbl_final_destination">Destinazione</string>
+    <string name="lbl_item_description">Articolo</string>
+    <string name="lbl_quantity">Quantità</string>
+    <string name="lbl_unit_price">Prezzo</string>
+    <string name="lbl_amount_added">Importo agg.</string>
     <string name="list_grand_total_title">Totale</string>
     <string name="main_activity_title">Lista della spesa</string>
     <string name="item_edit_insert">Inserimento</string>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/subtotal_card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="100">
+
+
+            <TextView
+                android:id="@+id/finalDestination"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="@integer/item_edit_label_weight"
+                android:text="dest."
+                android:textAppearance="@android:style/TextAppearance.Material.Large" />
+
+
+            <TextView
+                android:id="@+id/total"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="@integer/item_edit_full_field_weight"
+                android:gravity="right"
+                android:text="tot"
+                android:textAlignment="gravity"
+                android:textAppearance="@android:style/TextAppearance.Material.Large"
+                android:textStyle="normal|bold" />
+
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+</LinearLayout>

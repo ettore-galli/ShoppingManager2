@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,8 +19,10 @@ import com.example.ettoregalli.shoppingmanager2.database.utils.InputOutputUtils;
 import com.example.ettoregalli.shoppingmanager2.database.utils.ListItemInputOutputUtils;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 public class EditItemActivity extends AppCompatActivity {
+
     // Motore accesso al DB
     ShoppingListDAO shoppingListDAO;
 
@@ -48,6 +51,9 @@ public class EditItemActivity extends AppCompatActivity {
     int listId;
     int itemId;
     String openEditFunction;
+
+    // Contenitore pulsanti destinazioni finali
+    LinearLayout finalDestinationKeys;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -131,8 +137,12 @@ public class EditItemActivity extends AppCompatActivity {
         unitAa = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, shoppingListDAO.getUnitsList());
         unit.setAdapter(unitAa);
 
+
         /* Visualizzazione dati iniziale */
         initDisplay();
+
+        /* Pulsanti destinazione finale */
+        initFinalDestinationKeys();
     }
 
     /**
@@ -153,6 +163,7 @@ public class EditItemActivity extends AppCompatActivity {
     }
 
     private void initDisplay() {
+        /* Caricamento dati */
         switch (this.openEditFunction) {
             case ShoppingListDriverConstants.OPEN_EDIT_FOR_INSERT:
                 /* Inserimento */
@@ -168,6 +179,31 @@ public class EditItemActivity extends AppCompatActivity {
             case ShoppingListDriverConstants.OPEN_EDIT_FOR_DELETE:
                 /* Cancellazione */
                 break;
+        }
+
+    }
+
+    /* Pulsanti destinazione finale */
+    private void initFinalDestinationKeys() {
+        finalDestinationKeys = (LinearLayout) findViewById(R.id.finalDestinationKeys);
+        List<String> fdl = shoppingListDAO.getFinalDestinationsList(listId, 0);
+        for (String fd : fdl) {
+            Button b = new Button(this);
+            b.setText(fd);
+            b.setMinWidth(50);
+            b.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    try{
+                        String finalDest = ((Button) view).getText().toString();
+                        finalDestination.setText(finalDest);
+                    } catch (Exception e){
+
+                    }
+
+                }
+            });
+            finalDestinationKeys.addView(b);
         }
     }
 

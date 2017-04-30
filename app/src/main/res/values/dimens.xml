@@ -2,4 +2,10 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <integer name="item_edit_label_weight">30</integer>
+    <integer name="item_edit_main_field_weight">50</integer>
+    <integer name="item_edit_full_field_weight">70</integer>
+    <integer name="item_edit_added_field_weight">20</integer>
+
 </resources>

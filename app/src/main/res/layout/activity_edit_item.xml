@@ -1,166 +1,227 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:card_view="http://schemas.android.com/apk/res-auto"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:orientation="vertical">
 
-<android.support.v7.widget.CardView
-    android:id="@+id/card_view"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center">
-
-    <LinearLayout
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="@android:style/TextAppearance.Material.Large" />
-
+        android:layout_gravity="center">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="100"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/itemName"
-                android:layout_width="0dp"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="70"
-                android:textAppearance="@android:style/TextAppearance.Material.Large"/>
+                android:layout_weight="100"
+                android:orientation="horizontal">
 
-            <AutoCompleteTextView
-                android:id="@+id/finalDestination"
-                android:layout_width="0dp"
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="100"
+                    android:textAppearance="@android:style/TextAppearance.Material.Large"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="30"
-                android:gravity="left"
-                android:textAlignment="gravity"
-                android:textAppearance="@android:style/TextAppearance.Material.Medium" />
+                android:orientation="horizontal"
+                android:weightSum="100">
 
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="@integer/item_edit_label_weight"
+                    android:text="@string/lbl_item_description"
+                    android:textAppearance="@android:style/TextAppearance.Material.Medium"
+                    />
+
+                <EditText
+                    android:id="@+id/itemDescription"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="@integer/item_edit_full_field_weight"
+                    android:textAppearance="@android:style/TextAppearance.Material.Large"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="100">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="@integer/item_edit_label_weight"
+                    android:text="@string/lbl_quantity"
+                    android:textAppearance="@android:style/TextAppearance.Material.Medium"
+                    />
+
+                <EditText
+                    android:id="@+id/quantity"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="50"
+                    android:digits="-1234567890,."
+                    android:gravity="right"
+                    android:inputType="number|numberSigned|numberDecimal"
+                    android:selectAllOnFocus="true"
+                    android:textAlignment="gravity"
+                    android:textAppearance="@android:style/TextAppearance.Material.Large"/>
+
+                <Spinner
+                    android:id="@+id/unit"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="@integer/item_edit_added_field_weight"
+                    android:gravity="center"
+                    android:textAlignment="gravity"
+                    android:textAppearance="@android:style/TextAppearance.Material.Large"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="100">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="@integer/item_edit_label_weight"
+                    android:text="@string/lbl_unit_price"
+                    android:textAppearance="@android:style/TextAppearance.Material.Medium"
+                    />
+
+                <EditText
+                    android:id="@+id/unitPrice"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="50"
+                    android:digits="-1234567890,."
+                    android:gravity="right"
+                    android:inputType="number|numberSigned|numberDecimal"
+                    android:selectAllOnFocus="true"
+                    android:textAlignment="gravity"
+                    android:textAppearance="@android:style/TextAppearance.Material.Large"/>
+
+                <Button
+                    android:id="@+id/unitPriceMinus"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="@integer/item_edit_added_field_weight"
+                    android:text="@string/minus_key"
+                    android:textAppearance="@android:style/TextAppearance.Material.Large"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="100">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="@integer/item_edit_label_weight"
+                    android:text="@string/lbl_amount_added"
+                    android:textAppearance="@android:style/TextAppearance.Material.Medium"
+                    />
+
+                <EditText
+                    android:id="@+id/amountAdded"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="50"
+                    android:digits="-1234567890,."
+                    android:gravity="right"
+                    android:inputType="number|numberSigned|numberDecimal"
+                    android:selectAllOnFocus="true"
+                    android:textAlignment="gravity"
+                    android:textAppearance="@android:style/TextAppearance.Material.Large"/>
+
+                <Button
+                    android:id="@+id/amountAddedMinus"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="@integer/item_edit_added_field_weight"
+                    android:text="@string/minus_key"
+                    android:textAppearance="@android:style/TextAppearance.Material.Large"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="100"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="@integer/item_edit_label_weight"
+                    android:text="@string/lbl_final_destination"
+                    android:textAppearance="@android:style/TextAppearance.Material.Medium"
+                    />
+
+                <AutoCompleteTextView
+                    android:id="@+id/finalDestination"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="@integer/item_edit_full_field_weight"
+                    android:gravity="left"
+                    android:textAlignment="gravity"
+                    android:textAppearance="@android:style/TextAppearance.Material.Large"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/finalDestinationKeys"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="100">
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="100">
+
+                <Button
+                    android:id="@+id/cancel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="50"
+                    android:text="@string/cancel_key"
+                    android:textAppearance="@android:style/TextAppearance.Material.Large"/>
+
+                <Button
+                    android:id="@+id/enter"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="50"
+                    android:text="@string/enter_key"
+                    android:textAppearance="@android:style/TextAppearance.Material.Large"/>
+
+            </LinearLayout>
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="100">
-
-            <EditText
-                android:id="@+id/itemDescription"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="80"
-                android:textAppearance="@android:style/TextAppearance.Material.Medium" />
-
-            <Spinner
-                android:id="@+id/unit"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="15"
-                android:gravity="center"
-                android:textAlignment="gravity"
-                android:textAppearance="@android:style/TextAppearance.Material.Medium" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="100">
-
-            <EditText
-                android:id="@+id/quantity"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="20"
-                android:digits="-1234567890,."
-                android:gravity="right"
-                android:inputType="number|numberSigned|numberDecimal"
-                android:selectAllOnFocus="true"
-                android:textAlignment="gravity"
-                android:textAppearance="@android:style/TextAppearance.Material.Medium" />
-
-
-            <EditText
-                android:id="@+id/unitPrice"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="20"
-                android:digits="-1234567890,."
-                android:gravity="right"
-                android:inputType="number|numberSigned|numberDecimal"
-                android:selectAllOnFocus="true"
-                android:textAlignment="gravity"
-                android:textAppearance="@android:style/TextAppearance.Material.Medium" />
-
-            <Button
-                android:id="@+id/unitPriceMinus"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="10"
-                android:text="@string/minus_key" />
-
-            <EditText
-                android:id="@+id/amountAdded"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="20"
-                android:digits="-1234567890,."
-                android:gravity="right"
-                android:inputType="number|numberSigned|numberDecimal"
-                android:selectAllOnFocus="true"
-                android:textAlignment="gravity"
-                android:textAppearance="@android:style/TextAppearance.Material.Medium" />
-
-            <Button
-                android:id="@+id/amountAddedMinus"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="10"
-                android:text="@string/minus_key" />
-
-            <TextView
-                android:id="@+id/totalPrice"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="20"
-                android:gravity="right"
-                android:textAlignment="gravity"
-                android:textAppearance="@android:style/TextAppearance.Material.Medium" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="100">
-
-            <Button
-                android:id="@+id/cancel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="50"
-                android:text="@string/cancel_key" />
-
-            <Button
-                android:id="@+id/enter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="50"
-                android:text="@string/enter_key" />
-
-        </LinearLayout>
-    </LinearLayout>
-</android.support.v7.widget.CardView>
+    </android.support.v7.widget.CardView>
 
 
 </LinearLayout>

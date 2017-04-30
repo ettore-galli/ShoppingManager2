@@ -50,7 +50,7 @@ public class ListItemInputOutputUtils {
         if (li.getAmountAdded() == null) {
             li.setAmountAdded(BigDecimal.ZERO);
         }
-        li.setFinalDestination(finalDestinationInput);
+        li.setFinalDestination(finalDestinationInput.trim().toUpperCase());
         return li;
 
     }

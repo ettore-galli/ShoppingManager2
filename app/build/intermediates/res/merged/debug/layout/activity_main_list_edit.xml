@@ -35,7 +35,7 @@
                     android:orientation="horizontal"
                     android:weightSum="100">
 
-                    <TextView
+<!--                    <TextView
                         android:id="@+id/listTitle"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -50,7 +50,7 @@
                         android:layout_weight="30"
                         android:gravity="right"
                         android:textAlignment="gravity"
-                        android:textAppearance="@android:style/TextAppearance.Material.Large"/>
+                        android:textAppearance="@android:style/TextAppearance.Material.Large"/>-->
 
                     <ImageButton
                         android:id="@+id/insertNewItem"
