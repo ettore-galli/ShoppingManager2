@@ -11,4 +11,7 @@
     <color name="color_fd_E">#e0f7fa</color>
     <color name="color_fd_any">#e6ee9c</color>
     <color name="color_fd_zero">#ffcdd2</color>
+
+    <color name="color_fd_grand_total">#e0e0e0</color>
+
 </resources>

@@ -59,10 +59,8 @@ public class ShoppingListTotalAdapter extends RecyclerView.Adapter<ShoppingListS
         holder.finalDestination.setText(listSubtotal.getFinalDestination());
         holder.total.setText(iou.getBigDecimalStringOutput(listSubtotal.getTotalPrice()));
 
-        int fdColor = this.mainListEditActivity.getFinalDestinationColor(listSubtotal.getFinalDestinationVisualIndex());
-        if (listSubtotal.getTotalPrice().doubleValue() == 0) {
-            fdColor = R.color.color_fd_zero;
-        }
+        int fdColor = this.mainListEditActivity.getFinalDestinationColor(listSubtotal.getFinalDestinationVisualIndex(), listSubtotal.getTotalPrice());
+
         int bgColor = ContextCompat.getColor(holder.itemView.getContext(), fdColor);
         holder.item.setCardBackgroundColor(bgColor);
 

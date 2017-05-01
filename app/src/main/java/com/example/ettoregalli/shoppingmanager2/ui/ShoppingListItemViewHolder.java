@@ -10,6 +10,7 @@ import com.example.ettoregalli.shoppingmanager2.R;
 
 public class ShoppingListItemViewHolder extends RecyclerView.ViewHolder {
 
+    protected TextView finalDestination;
     protected TextView description;
     protected TextView totalPrice;
 
@@ -23,6 +24,7 @@ public class ShoppingListItemViewHolder extends RecyclerView.ViewHolder {
 
         item = (CardView) itemView.findViewById(R.id.item_card_view);
 
+        finalDestination = (TextView) itemView.findViewById(R.id.finalDestination);
         description = (TextView) itemView.findViewById(R.id.description);
         totalPrice = (TextView) itemView.findViewById(R.id.totalPrice);
 

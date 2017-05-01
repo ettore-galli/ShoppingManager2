@@ -58,16 +58,20 @@ public class ShoppingListAdapter extends RecyclerView.Adapter<ShoppingListItemVi
         int listId = sle.getListId();
         int itemId = sle.getItemId();
 
-        String descr = "[" + sle.getFinalDestination() + "] " + sle.getDescription() + "; " +
-                iou.getBigDecimalStringOutput(sle.getQuantity()) + " " + sle.getUnit().trim() + " x " + iou.getBigDecimalStringOutput(sle.getUnitPrice());
+
+        holder.finalDestination.setText(sle.getFinalDestination());
+
+        String descr = sle.getDescription() + "; " +
+                iou.getBigDecimalStringOutput(sle.getQuantity()) ;
+        descr +=  sle.getUnit().trim() + " x " + iou.getBigDecimalStringOutput(sle.getUnitPrice());
 
         float add = sle.getAmountAdded().floatValue();
-        String displayAdded = iou.getBigDecimalStringOutput(sle.getAmountAdded());
+        String displayAdded = iou.getBigDecimalStringOutput(sle.getAmountAdded().abs());
         if (add < 0) {
-            displayAdded = " + " + displayAdded;
+            displayAdded = " - " + displayAdded;
         }
-        if (add != 0) {
-            descr += displayAdded;
+        if (add > 0) {
+            displayAdded = " + " + displayAdded;
         }
 
         holder.description.setText(descr);
@@ -76,10 +80,8 @@ public class ShoppingListAdapter extends RecyclerView.Adapter<ShoppingListItemVi
         holder.edit.setOnClickListener(new ListItemEditOnClickListener(holder.itemView, mainListEditActivity, listId, itemId));
         holder.delete.setOnClickListener(new ListItemDeleteOnClickListener(holder.itemView, mainListEditActivity, listId, itemId));
 
-        int fdColor = this.mainListEditActivity.getFinalDestinationColor(sle.getFinalDestinationVisualIndex());
-        if (sle.getTotalPrice().doubleValue() == 0) {
-            fdColor = R.color.color_fd_zero;
-        }
+        int fdColor = this.mainListEditActivity.getFinalDestinationColor(sle.getFinalDestinationVisualIndex(), sle.getTotalPrice());
+
         int bgColor = ContextCompat.getColor(holder.itemView.getContext(), fdColor);
         holder.item.setCardBackgroundColor(bgColor);
 

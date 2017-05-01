@@ -233,7 +233,7 @@ public class ShoppingListDAO extends ShoppingListManagerBaseDAO {
         ListSubtotal li = new ListSubtotal();
         li.setTotalPrice(grandTotal);
         li.setFinalDestination(ShoppingListDriverConstants.SUBTOTALS_GRAND_TOTAL_CAPTION);
-        li.setFinalDestinationVisualIndex(0);
+        li.setFinalDestinationVisualIndex(ShoppingListDriverConstants.SUBTOTALS_GRAND_TOTAL_VISUAL_INDEX); // Valore convenzionale per il totale
 
         listSubtotals.add(li);
 

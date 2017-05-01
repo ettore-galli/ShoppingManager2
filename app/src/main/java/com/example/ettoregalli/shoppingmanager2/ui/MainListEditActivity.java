@@ -16,6 +16,7 @@ import com.example.ettoregalli.shoppingmanager2.database.model.ListSubtotal;
 import com.example.ettoregalli.shoppingmanager2.database.utils.InputOutputUtils;
 import com.example.ettoregalli.shoppingmanager2.database.utils.ListItemInputOutputUtils;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -94,7 +95,7 @@ public class MainListEditActivity extends AppCompatActivity {
      * Caricamento lista
      */
     public void loadItemList() {
-        (new ItemListAsyncLoader()).execute(this);
+        (new ItemListAsyncLoader()).execute();
     }
 
     /**
@@ -117,28 +118,34 @@ public class MainListEditActivity extends AppCompatActivity {
      * @param finalDestinationVisualIndex
      * @return
      */
-    public int getFinalDestinationColor(int finalDestinationVisualIndex) {
+    public int getFinalDestinationColor(int finalDestinationVisualIndex, BigDecimal total) {
         int fdColor = R.color.color_fd_any;
-
-        switch (finalDestinationVisualIndex) {
-            case 1:
-                fdColor = R.color.color_fd_A;
-                break;
-            case 2:
-                fdColor = R.color.color_fd_B;
-                break;
-            case 3:
-                fdColor = R.color.color_fd_C;
-                break;
-            case 4:
-                fdColor = R.color.color_fd_D;
-                break;
-            case 5:
-                fdColor = R.color.color_fd_E;
-                break;
-            default:
-                fdColor = R.color.color_fd_any;
-                break;
+        if (!total.equals(BigDecimal.ZERO)) {
+            switch (finalDestinationVisualIndex) {
+                case 1:
+                    fdColor = R.color.color_fd_A;
+                    break;
+                case 2:
+                    fdColor = R.color.color_fd_B;
+                    break;
+                case 3:
+                    fdColor = R.color.color_fd_C;
+                    break;
+                case 4:
+                    fdColor = R.color.color_fd_D;
+                    break;
+                case 5:
+                    fdColor = R.color.color_fd_E;
+                    break;
+                case ShoppingListDriverConstants.SUBTOTALS_GRAND_TOTAL_VISUAL_INDEX:
+                    fdColor = R.color.color_fd_grand_total;
+                    break;
+                default:
+                    fdColor = R.color.color_fd_any;
+                    break;
+            }
+        } else {
+            fdColor = R.color.color_fd_zero;
         }
 
         return fdColor;
@@ -177,25 +184,27 @@ public class MainListEditActivity extends AppCompatActivity {
     /**
      * Definizione task caricamento asincrono liste
      */
-    private class ItemListAsyncLoader extends AsyncTask<MainListEditActivity, Void, Void> {
+    private class ItemListAsyncLoader extends AsyncTask<Void, Void, Void> {
 
         @Override
-        protected Void doInBackground(MainListEditActivity... mainListEditActivities) {
-            for (MainListEditActivity ma : mainListEditActivities) {
+        protected Void doInBackground(Void... voids) {
 
-                /* Lista dettaglio */
-                ma.displayList.clear();
-                ma.displayList.addAll(shoppingListDAO.getListItemList(listId, 0));
-                ma.slAdapter.notifyDataSetChanged();
+            /* Lista dettaglio */
+            displayList.clear();
+            displayList.addAll(shoppingListDAO.getListItemList(listId, 0));
 
-                /* Lista subtotali */
-                ma.subtotalList.clear();
-                ma.subtotalList.addAll(shoppingListDAO.getListSubtotalList(listId, 0));
-                ma.totAdapter.notifyDataSetChanged();
+            /* Lista subtotali */
+            subtotalList.clear();
+            subtotalList.addAll(shoppingListDAO.getListSubtotalList(listId, 0));
 
-            }
             return null;
         }
 
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            slAdapter.notifyDataSetChanged();
+            totAdapter.notifyDataSetChanged();
+        }
     } // class ItemListAsyncLoader
 } // class MainListEditActivity

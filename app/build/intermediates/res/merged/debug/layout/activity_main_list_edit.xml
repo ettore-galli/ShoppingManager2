@@ -35,22 +35,6 @@
                     android:orientation="horizontal"
                     android:weightSum="100">
 
-<!--                    <TextView
-                        android:id="@+id/listTitle"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="30"
-                        android:text="@string/list_grand_total_title"
-                        android:textAppearance="@android:style/TextAppearance.Material.Large"/>
-
-                    <TextView
-                        android:id="@+id/grandTotal"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="30"
-                        android:gravity="right"
-                        android:textAlignment="gravity"
-                        android:textAppearance="@android:style/TextAppearance.Material.Large"/>-->
 
                     <ImageButton
                         android:id="@+id/insertNewItem"

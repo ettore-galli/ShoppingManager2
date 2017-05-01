@@ -102,6 +102,7 @@
     <color name="color_fd_D">#fff3e0</color>
     <color name="color_fd_E">#e0f7fa</color>
     <color name="color_fd_any">#e6ee9c</color>
+    <color name="color_fd_grand_total">#e0e0e0</color>
     <color name="color_fd_zero">#ffcdd2</color>
     <color name="dim_foreground_disabled_material_dark">#80bebebe</color>
     <color name="dim_foreground_disabled_material_light">#80323232</color>
