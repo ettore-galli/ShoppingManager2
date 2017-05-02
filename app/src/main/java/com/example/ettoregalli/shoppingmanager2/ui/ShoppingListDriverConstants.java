@@ -17,4 +17,6 @@ public class ShoppingListDriverConstants {
 
     public static final String SUBTOTALS_GRAND_TOTAL_CAPTION = "TOTALE";
     public static final int SUBTOTALS_GRAND_TOTAL_VISUAL_INDEX = -1;
+
+
 }

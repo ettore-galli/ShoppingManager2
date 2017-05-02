@@ -12,6 +12,9 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ShoppingListManagerBaseDAO extends SQLiteOpenHelper {
+    public static final String ORDER_ITEMS_BY_ID = "list_id, item_id";
+    public static final String ORDER_ITEMS_BY_FINAL_DESTINATION = "list_id, item_final_destination, item_id";
+
     /* Attributi di classe */
     protected static final String DATABASE_NAME = "shopping_list.db";
     protected static final int DATABASE_VERSION = 1;

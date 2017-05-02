@@ -20,10 +20,15 @@ public class ShoppingListDAO extends ShoppingListManagerBaseDAO {
     }
 
     public List<ListItem> getListItemList(int listId, int itemId) {
-        return getListItemList(getReadableDatabase(), listId, itemId);
+        String orderBy = "list_id, item_id";
+        return getListItemList(getReadableDatabase(), listId, itemId, null, orderBy);
     }
 
-    private List<ListItem> getListItemList(SQLiteDatabase sqLiteDatabase, int listId, int itemId) {
+    public List<ListItem> getListItemList(int listId, int itemId, String finalDestination, String orderBy) {
+        return getListItemList(getReadableDatabase(), listId, itemId, finalDestination, orderBy);
+    }
+
+    private List<ListItem> getListItemList(SQLiteDatabase sqLiteDatabase, int listId, int itemId, String finalDestination, String orderBy) {
         List<ListItem> listItems = new ArrayList<ListItem>();
         String[] LIST_ITEMS_TABLE_COLUMNS = {
                 "list_id",
@@ -37,20 +42,23 @@ public class ShoppingListDAO extends ShoppingListManagerBaseDAO {
                 FINAL_DESTINATION_FORMULA + " AS item_final_destination ",
                 FINAL_DESTINATION_VISUAL_INDEX_FORMULA + " AS item_final_destination_visual_index "
         };
-        String selection;
-        String[] selectionArgs;
-        if (itemId == 0) {
-            selection = "(list_id=?)";
-            selectionArgs = new String[1];
-            selectionArgs[0] = String.valueOf(listId);
-        } else {
-            selection = "(list_id=?) AND (item_id=?)";
-            selectionArgs = new String[2];
-            selectionArgs[0] = String.valueOf(listId);
-            selectionArgs[1] = String.valueOf(itemId);
+
+        SQLCudQueryBuilder sqb = new SQLCudQueryBuilder(LIST_ITEMS_TABLE_NAME);
+        try {
+            if (listId != 0) {
+                sqb.put("list_id", listId, true);
+            }
+            if (itemId != 0) {
+                sqb.put("item_id", itemId, true);
+            }
+            if (finalDestination != null) {
+                sqb.put("item_final_destination", finalDestination, true);
+            }
+        } catch (SQLCudQueryBuilder.ClassNotSupportedException ce) {
         }
 
-        String orderBy = "list_id, item_id";
+        String selection = sqb.getWhereClauseNoWhere();
+        String[] selectionArgs = null;
 
         Cursor slcur = sqLiteDatabase.query(
                 LIST_ITEMS_TABLE_NAME + " AS li",         // The table to query
@@ -148,20 +156,19 @@ public class ShoppingListDAO extends ShoppingListManagerBaseDAO {
         List<String> finalDestinations = new ArrayList<String>();
         String[] LIST_ITEMS_TABLE_COLUMNS = {FINAL_DESTINATION_FORMULA};
 
-        String selection;
-        String[] selectionArgs;
-        if (itemId == 0) {
-            selection = "(list_id=?)";
-            selectionArgs = new String[1];
-            selectionArgs[0] = String.valueOf(listId);
-        } else {
-            selection = "(list_id=?) AND (item_id=?)";
-            selectionArgs = new String[2];
-            selectionArgs[0] = String.valueOf(listId);
-            selectionArgs[1] = String.valueOf(itemId);
+        SQLCudQueryBuilder sqb = new SQLCudQueryBuilder(LIST_ITEMS_TABLE_NAME);
+        try {
+            if (listId != 0) {
+                sqb.put("list_id", listId, true);
+            }
+            if (itemId != 0) {
+                sqb.put("item_id", itemId, true);
+            }
+        } catch (SQLCudQueryBuilder.ClassNotSupportedException ce) {
         }
 
-        String orderBy = "list_id, item_id";
+        String selection = sqb.getWhereClauseNoWhere();
+        String[] selectionArgs = null;
 
         Cursor slcur = sqLiteDatabase.query(
                 true,
@@ -194,19 +201,20 @@ public class ShoppingListDAO extends ShoppingListManagerBaseDAO {
                 "SUM(" + TOTAL_PRICE_FORMULA + ") AS item_total_price ",
                 FINAL_DESTINATION_VISUAL_INDEX_FORMULA + " AS item_final_destination_visual_index "
         };
-        String selection;
-        String[] selectionArgs;
 
-        if (itemId == 0) {
-            selection = "(list_id=?)";
-            selectionArgs = new String[1];
-            selectionArgs[0] = String.valueOf(listId);
-        } else {
-            selection = "(list_id=?) AND (item_id=?)";
-            selectionArgs = new String[2];
-            selectionArgs[0] = String.valueOf(listId);
-            selectionArgs[1] = String.valueOf(itemId);
+        SQLCudQueryBuilder sqb = new SQLCudQueryBuilder(LIST_ITEMS_TABLE_NAME);
+        try {
+            if (listId != 0) {
+                sqb.put("list_id", listId, true);
+            }
+            if (itemId != 0) {
+                sqb.put("item_id", itemId, true);
+            }
+        } catch (SQLCudQueryBuilder.ClassNotSupportedException ce) {
         }
+
+        String selection = sqb.getWhereClauseNoWhere();
+        String[] selectionArgs = null;
 
         Cursor slcur = sqLiteDatabase.query(
                 LIST_ITEMS_TABLE_NAME + " AS li",         // The table to query
@@ -225,7 +233,7 @@ public class ShoppingListDAO extends ShoppingListManagerBaseDAO {
             li.setTotalPrice(totalPrice);
             li.setFinalDestination(slcur.getString(slcur.getColumnIndex("item_final_destination")));
             li.setFinalDestinationVisualIndex(slcur.getInt(slcur.getColumnIndex("item_final_destination_visual_index")));
-            grandTotal=grandTotal.add(totalPrice);
+            grandTotal = grandTotal.add(totalPrice);
             listSubtotals.add(li);
         }
 

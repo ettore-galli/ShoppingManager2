@@ -30,6 +30,7 @@ public class MainListEditActivity extends AppCompatActivity {
 
     // Elenco voci in lista
     List<ListItem> displayList;
+    String listOrderBy;
 
     // Costruzione lista voci
     RecyclerView shoppingListRecyclerView;
@@ -46,6 +47,10 @@ public class MainListEditActivity extends AppCompatActivity {
 
     // Pulsante nuova voce
     ImageButton insertNewItem;
+
+    // Pulsanti ordinamento
+    ImageButton orderById;
+    ImageButton orderByFinalDestination;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,7 +90,27 @@ public class MainListEditActivity extends AppCompatActivity {
             }
         });
 
+        /* Ordinamento */
+        orderById = (ImageButton) findViewById(R.id.orderById);
+        orderByFinalDestination = (ImageButton) findViewById(R.id.orderByFinalDestination);
+        orderById.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listOrderBy = ShoppingListDAO.ORDER_ITEMS_BY_ID;
+                loadItemList();
+            }
+        });
 
+        orderByFinalDestination.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listOrderBy = ShoppingListDAO.ORDER_ITEMS_BY_FINAL_DESTINATION;
+                loadItemList();
+            }
+        });
+
+        /* Ordinamento di default */
+        listOrderBy = ShoppingListDAO.ORDER_ITEMS_BY_ID;
 
         /* Caricamento dati iniziale */
         loadItemList();
@@ -191,7 +216,7 @@ public class MainListEditActivity extends AppCompatActivity {
 
             /* Lista dettaglio */
             displayList.clear();
-            displayList.addAll(shoppingListDAO.getListItemList(listId, 0));
+            displayList.addAll(shoppingListDAO.getListItemList(listId, 0, null, listOrderBy));
 
             /* Lista subtotali */
             subtotalList.clear();

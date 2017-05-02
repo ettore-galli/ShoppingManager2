@@ -270,6 +270,16 @@ public class SQLCudQueryBuilder {
     }
 
     /**
+     * Gets the where clause without the where statement
+     *
+     * @return
+     */
+    public String getWhereClauseNoWhere() {
+        String where = getFieldExpressionList(KEY_VALUES_KEYS, EXPRESSION_TYPE_FIELDS_EQUAL_VALUES, WHERE_CLAUSE_AND_SEPARATOR, true);
+        return where;
+    }
+
+    /**
      * Gets the field expression list used
      *
      * @param keyValues               Allows to select key fields only, non-key fields only or both

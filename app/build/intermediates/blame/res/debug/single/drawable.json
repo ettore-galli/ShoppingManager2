@@ -4,6 +4,10 @@
         "source": "/Users/ettoregalli/.android/build-cache/60651db94081871d1e8e2ee68cf617cf5a848686/output/res/drawable/notification_icon_background.xml"
     },
     {
+        "merged": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/build/intermediates/res/merged/debug/drawable/ic_reorder_black_24dp.xml",
+        "source": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/src/main/res/drawable/ic_reorder_black_24dp.xml"
+    },
+    {
         "merged": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/build/intermediates/res/merged/debug/drawable/ic_edit_black_24dp.xml",
         "source": "/Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/src/main/res/drawable/ic_edit_black_24dp.xml"
     },
