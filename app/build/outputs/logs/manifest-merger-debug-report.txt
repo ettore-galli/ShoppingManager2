@@ -33,7 +33,7 @@ MERGED from [com.android.support.constraint:constraint-layout:1.0.0-alpha9] /Use
 	android:allowBackup
 		ADDED from /Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/src/main/AndroidManifest.xml:6:9-35
 	android:icon
-		ADDED from /Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/src/main/AndroidManifest.xml:7:9-43
+		ADDED from /Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/src/main/AndroidManifest.xml:7:9-62
 	android:theme
 		ADDED from /Users/ettoregalli/Documents/SVILUPPO/android/ShoppingManager2/app/src/main/AndroidManifest.xml:10:9-40
 activity#com.example.ettoregalli.shoppingmanager2.ui.MainListEditActivity

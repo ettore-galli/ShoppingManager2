@@ -17,7 +17,7 @@ public class ShoppingListManagerBaseDAO extends SQLiteOpenHelper {
 
     /* Attributi di classe */
     protected static final String DATABASE_NAME = "shopping_list.db";
-    protected static final int DATABASE_VERSION = 1;
+    protected static final int DATABASE_VERSION = 2;
 
     /* Tipi statement SQL */
     protected static final String STATEMENT_TYPE_SELECT = "SELECT";
@@ -39,7 +39,8 @@ public class ShoppingListManagerBaseDAO extends SQLiteOpenHelper {
             "CREATE TABLE " + LIST_HEAD_TABLE_NAME + "( " +
             "  list_id            INTEGER, " +
             "  list_title         TEXT, " +
-            "  list_date          TEXT" +
+            "  list_date          TEXT, " +
+            "  PRIMARY KEY(list_id) " +
             ")";
 
     protected static final String LIST_ITEMS_TABLE_NAME = "list_items";
@@ -92,11 +93,11 @@ public class ShoppingListManagerBaseDAO extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-        /*
-        this.destroyDatabase(sqLiteDatabase);
-        this.onCreate(sqLiteDatabase);
-        */
+    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
+        if (newVersion > oldVersion) {
+            this.destroyDatabase(sqLiteDatabase);
+            this.onCreate(sqLiteDatabase);
+        }
     }
 
     public boolean listHeaderExists(int listId) {
@@ -133,9 +134,19 @@ public class ShoppingListManagerBaseDAO extends SQLiteOpenHelper {
         return getNextListId(getReadableDatabase());
     }
 
-    private int getNextListId(SQLiteDatabase sqLiteDatabase) {
+    protected int getNextListId(SQLiteDatabase sqLiteDatabase) {
         int nextItemId = 0;
-        String q = "SELECT 1 + IFNULL(MAX(list_id), 0) FROM list_items";
+        String q = "SELECT 1 + IFNULL(MAX(list_id), 0) FROM " + LIST_HEAD_TABLE_NAME;
+        Cursor cGetListId = sqLiteDatabase.rawQuery(q, null);
+        while (cGetListId.moveToNext()) {
+            nextItemId = cGetListId.getInt(0);
+        }
+        return nextItemId;
+    }
+
+    protected int getLastListId(SQLiteDatabase sqLiteDatabase) {
+        int nextItemId = 0;
+        String q = "SELECT IFNULL(MAX(list_id), 0) FROM " + LIST_HEAD_TABLE_NAME;
         Cursor cGetListId = sqLiteDatabase.rawQuery(q, null);
         while (cGetListId.moveToNext()) {
             nextItemId = cGetListId.getInt(0);
@@ -149,7 +160,7 @@ public class ShoppingListManagerBaseDAO extends SQLiteOpenHelper {
 
     private int getNextItemId(SQLiteDatabase sqLiteDatabase, int listId) {
         int nextItemId = 0;
-        String q = "SELECT 1 + IFNULL(MAX(item_id), 0) FROM list_items WHERE (list_id=?)";
+        String q = "SELECT 1 + IFNULL(MAX(item_id), 0) FROM " + LIST_ITEMS_TABLE_NAME + " WHERE (list_id=?)";
         String[] qArgs = {(new Integer(listId).toString())};
         Cursor cGetListId = sqLiteDatabase.rawQuery(q, qArgs);
         while (cGetListId.moveToNext()) {

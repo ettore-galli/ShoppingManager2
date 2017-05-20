@@ -1,5 +1,7 @@
 package com.example.ettoregalli.shoppingmanager2.ui;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -13,6 +15,7 @@ import com.example.ettoregalli.shoppingmanager2.R;
 import com.example.ettoregalli.shoppingmanager2.database.dao.ShoppingListDAO;
 import com.example.ettoregalli.shoppingmanager2.database.model.ListItem;
 import com.example.ettoregalli.shoppingmanager2.database.model.ListSubtotal;
+import com.example.ettoregalli.shoppingmanager2.database.sqliteutilities.SQLCudQueryBuilder;
 import com.example.ettoregalli.shoppingmanager2.database.utils.InputOutputUtils;
 import com.example.ettoregalli.shoppingmanager2.database.utils.ListItemInputOutputUtils;
 
@@ -23,7 +26,7 @@ import java.util.List;
 public class MainListEditActivity extends AppCompatActivity {
 
     // Lista gestita
-    protected final int listId = 999;
+    int listId;
 
     // Motore accesso al DB
     ShoppingListDAO shoppingListDAO;
@@ -51,6 +54,9 @@ public class MainListEditActivity extends AppCompatActivity {
     // Pulsanti ordinamento
     ImageButton orderById;
     ImageButton orderByFinalDestination;
+
+    // Nuova lista
+    ImageButton createNewList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,6 +115,40 @@ public class MainListEditActivity extends AppCompatActivity {
             }
         });
 
+        /* Creazione nuova lista */
+        createNewList = (ImageButton) findViewById(R.id.createNewList);
+        createNewList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // 1. Instantiate an AlertDialog.Builder with its constructor
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainListEditActivity.this);
+
+                // 2. Chain together various setter methods to set the dialog characteristics
+                builder.setMessage(R.string.new_list_dialog_title)
+                        .setTitle(R.string.new_list_dialog_message)
+                ;
+                builder.setPositiveButton(R.string.new_list_dialog_yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // User clicked OK button
+                        try {
+                            shoppingListDAO.createNewList();
+                        } catch (SQLCudQueryBuilder.ClassNotSupportedException e) {
+                            e.printStackTrace();
+                        }
+                        loadItemList();
+                    }
+                });
+                builder.setNegativeButton(R.string.new_list_dialog_no, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // User cancelled the dialog
+                    }
+                });
+                // 3. Get the AlertDialog from create()
+                AlertDialog dialog = builder.create();
+                dialog.show();
+            }
+        });
+
         /* Ordinamento di default */
         listOrderBy = ShoppingListDAO.ORDER_ITEMS_BY_ID;
 
@@ -120,6 +160,10 @@ public class MainListEditActivity extends AppCompatActivity {
      * Caricamento lista
      */
     public void loadItemList() {
+        setTitle(shoppingListDAO.getCurrentListDescription());
+        /* Lista gestita */
+        listId = shoppingListDAO.getCurrentListId();
+        /* Lancio caricamento */
         (new ItemListAsyncLoader()).execute();
     }
 

@@ -4,13 +4,16 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.example.ettoregalli.shoppingmanager2.database.model.ListHeader;
 import com.example.ettoregalli.shoppingmanager2.database.model.ListItem;
 import com.example.ettoregalli.shoppingmanager2.database.model.ListSubtotal;
 import com.example.ettoregalli.shoppingmanager2.database.sqliteutilities.SQLCudQueryBuilder;
 import com.example.ettoregalli.shoppingmanager2.ui.ShoppingListDriverConstants;
 
 import java.math.BigDecimal;
+import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class ShoppingListDAO extends ShoppingListManagerBaseDAO {
@@ -246,6 +249,95 @@ public class ShoppingListDAO extends ShoppingListManagerBaseDAO {
         listSubtotals.add(li);
 
         return listSubtotals;
+    }
+
+    private SQLCudQueryBuilder getListHeaderQueryBuilder(int listId) throws SQLCudQueryBuilder.ClassNotSupportedException {
+        SQLCudQueryBuilder sqb = new SQLCudQueryBuilder(super.LIST_HEAD_TABLE_NAME);
+
+        /* Campi chiave */
+        sqb.put("list_id", listId, true);
+
+        /* Campi non di chiave */
+        sqb.put("list_title", "Lista N° " + listId);
+
+        return sqb;
+    }
+
+    public int getCurrentListId() {
+        return getLastListId(getReadableDatabase());
+    }
+
+    public int createNewList() throws SQLCudQueryBuilder.ClassNotSupportedException {
+        SQLiteDatabase db = getWritableDatabase();
+        db.beginTransaction();
+        int newListId = getNextListId(db);
+        String q = getListHeaderQueryBuilder(newListId).getInsertQuery();
+        db.execSQL(q);
+        db.setTransactionSuccessful();
+        db.endTransaction();
+        return getCurrentListId();
+    }
+
+    public List<ListHeader> getListHeaderList(int listId) {
+        return getListHeaderList(getReadableDatabase(), listId);
+    }
+
+    private List<ListHeader> getListHeaderList(SQLiteDatabase sqLiteDatabase, int listId) {
+        List<ListHeader> hlist = new ArrayList<ListHeader>();
+
+        String[] LIST_ITEMS_TABLE_COLUMNS = {
+                "list_id",
+                "list_title",
+                "list_date"
+        };
+        SQLCudQueryBuilder sqb = new SQLCudQueryBuilder(LIST_HEAD_TABLE_NAME);
+        try {
+            if (listId != 0) {
+                sqb.put("list_id", listId, true);
+            }
+        } catch (SQLCudQueryBuilder.ClassNotSupportedException ce) {
+        }
+
+        String selection = sqb.getWhereClauseNoWhere();
+        String[] selectionArgs = null;
+
+        Cursor slcur = sqLiteDatabase.query(
+                LIST_HEAD_TABLE_NAME + " AS li",         // The table to query
+                LIST_ITEMS_TABLE_COLUMNS,                 // The columns to return
+                selection,                                // The columns for the WHERE clause
+                selectionArgs,                            // The values for the WHERE clause
+                null,                                     // don't group the rows
+                null,                                     // don't filter by row groups
+                null                                      // The sort order
+        );
+
+        while (slcur.moveToNext()) {
+
+            String r = slcur.getInt(0) + " " + slcur.getString(1);
+            System.out.println(r);
+            ListHeader lh = new ListHeader();
+            lh.setListId(slcur.getInt(slcur.getColumnIndex("list_id")));
+            lh.setListTitle(slcur.getString(slcur.getColumnIndex("list_title")));
+            try {
+                Date d = (DateFormat.getDateInstance()).parse(slcur.getString(slcur.getColumnIndex("list_date")));
+                lh.setListDate(d);
+            } catch (Exception e) {
+            }
+            hlist.add(lh);
+        }
+        return hlist;
+    }
+
+    public String getCurrentListDescription() {
+        String ldes = "";
+        int curList = getCurrentListId();
+        ListHeader lh = null;
+        try {
+            lh = getListHeaderList(getReadableDatabase(), curList).get(0);
+            ldes = lh.getListTitle();
+        } catch (Exception e) {
+        }
+        return ldes;
     }
 
 } // ShoppingListDAO

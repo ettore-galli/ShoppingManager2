@@ -22,6 +22,12 @@
     <string name="delete_dialog_message">Cancellare l\'elemento?</string>
     <string name="delete_dialog_yes">Ok</string>
     <string name="delete_dialog_no">Annulla</string>
+
+    <string name="new_list_dialog_title">Nuova lista</string>
+    <string name="new_list_dialog_message">Creare una nuova lista?</string>
+    <string name="new_list_dialog_yes">Ok</string>
+    <string name="new_list_dialog_no">Annulla</string>
+
     <string name="number_parse_error">Errore nel formato numerico</string>
     <string name="speech_input_on"/>
     <string name="speech_input_off"/>
