@@ -263,10 +263,19 @@ public class ShoppingListDAO extends ShoppingListManagerBaseDAO {
         return sqb;
     }
 
+    /**
+     * Reperisce id lista "corrente"
+     * @return
+     */
     public int getCurrentListId() {
         return getLastListId(getReadableDatabase());
     }
 
+    /**
+     * Creazione di una nuova lista
+     * @return
+     * @throws SQLCudQueryBuilder.ClassNotSupportedException
+     */
     public int createNewList() throws SQLCudQueryBuilder.ClassNotSupportedException {
         SQLiteDatabase db = getWritableDatabase();
         db.beginTransaction();
@@ -278,10 +287,21 @@ public class ShoppingListDAO extends ShoppingListManagerBaseDAO {
         return getCurrentListId();
     }
 
+    /**
+     * Lista di testate
+     * @param listId
+     * @return
+     */
     public List<ListHeader> getListHeaderList(int listId) {
         return getListHeaderList(getReadableDatabase(), listId);
     }
 
+    /**
+     * Lista di testate
+     * @param sqLiteDatabase
+     * @param listId
+     * @return
+     */
     private List<ListHeader> getListHeaderList(SQLiteDatabase sqLiteDatabase, int listId) {
         List<ListHeader> hlist = new ArrayList<ListHeader>();
 
@@ -328,6 +348,10 @@ public class ShoppingListDAO extends ShoppingListManagerBaseDAO {
         return hlist;
     }
 
+    /**
+     * Descrizione della lista corrente
+     * @return
+     */
     public String getCurrentListDescription() {
         String ldes = "";
         int curList = getCurrentListId();
