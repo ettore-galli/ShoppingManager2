@@ -95,4 +95,11 @@ public class InputOutputUtils {
         return i;
     }
 
-}
+    public String getTrimmedStringValue(String s){
+        if (s != null) {
+            return s.trim();
+        } else {
+            return "";
+        }
+    }
+} // InputOutputUtils

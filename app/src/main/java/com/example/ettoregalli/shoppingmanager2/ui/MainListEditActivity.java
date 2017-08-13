@@ -149,6 +149,24 @@ public class MainListEditActivity extends AppCompatActivity {
             }
         });
 
+
+        /* Long click: scelta liste precedenti */
+        createNewList.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                // 1. Instantiate an AlertDialog.Builder with its constructor
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainListEditActivity.this);
+
+                // 2. Chain together various setter methods to set the dialog characteristics
+                builder.setMessage(R.string.select_list_dialog_title)
+                        .setTitle(R.string.select_list_dialog_message)
+                ;
+
+                
+                return true;
+            }
+        });
+
         /* Ordinamento di default */
         listOrderBy = ShoppingListDAO.ORDER_ITEMS_BY_ID;
 
